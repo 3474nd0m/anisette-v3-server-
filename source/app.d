@@ -289,7 +289,7 @@ class AnisetteService {
 				"message": typeid(t).name ~ ": " ~ t.msg
 			];
 			res.headers["Implementation-Version"] = brandingCode;
-			log.info("[>>] anisette-v3 /v3/get_headers error.");
+			log.info("[>>] anisette-v3 /v3/get_headers error: " ~ error.toString(JSONOptions.doNotEscapeSlashes));
 			res.writeBody(error.toString(JSONOptions.doNotEscapeSlashes), "application/json");
 		} finally {
 			if (file.exists(tmpProvisioningPath)) {
